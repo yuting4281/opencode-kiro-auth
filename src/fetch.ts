@@ -26,17 +26,13 @@ export function createCustomFetch(accessToken: string): typeof globalThis.fetch 
     const url = typeof input === "string" ? input : input instanceof URL ? input.toString() : input.url
     const method = init?.method ?? "GET"
 
-    // Only intercept POST to Anthropic messages endpoint
-
     if (method !== "POST" || !url.endsWith("/messages")) {
       return globalThis.fetch(input, init)
     }
 
-
     const claudeBody: ClaudeRequestBody = JSON.parse(init?.body as string)
     const isStream = claudeBody.stream === true
     const aqRequest = convertClaudeToAmazonQ(claudeBody)
-
 
     const aqResp = await globalThis.fetch(AMAZON_Q_URL, {
       method: "POST",
@@ -175,6 +171,15 @@ async function collectNonStreamResponse(aqResp: Response, claudeBody: ClaudeRequ
         parsed = JSON.parse(payloadText)
       } catch {
         continue
+      }
+
+      const exType = evt.headers[":exception-type"] as string | undefined
+      if (exType) {
+        const msg = (parsed as any).message ?? exType
+        return new Response(JSON.stringify({ type: "error", error: { type: "api_error", message: msg } }), {
+          status: 400,
+          headers: { "content-type": "application/json" },
+        })
       }
 
       const eventType = evt.headers[":event-type"] as string | undefined

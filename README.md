@@ -6,13 +6,7 @@ Intercepts Anthropic API calls and transparently routes them through Amazon Q.
 
 ## Install
 
-1. Add the plugin to `~/.config/opencode/package.json`:
-
-```bash
-cd ~/.config/opencode && npm install opencode-kiro-q-auth
-```
-
-2. Edit `~/.config/opencode/opencode.json`:
+Add the following to `~/.config/opencode/opencode.json` (the plugin will be installed automatically):
 
 ```json
 {

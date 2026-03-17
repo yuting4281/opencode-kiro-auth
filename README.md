@@ -1,4 +1,4 @@
-# opencode-kiro-auth
+# opencode-kiro-q-auth
 
 OpenCode plugin that lets you use Amazon Q / Kiro as a Claude provider.
 
@@ -9,7 +9,7 @@ Intercepts Anthropic API calls and transparently routes them through Amazon Q.
 1. Add the plugin to `~/.config/opencode/package.json`:
 
 ```bash
-cd ~/.config/opencode && npm install opencode-kiro-auth
+cd ~/.config/opencode && npm install opencode-kiro-q-auth
 ```
 
 2. Edit `~/.config/opencode/opencode.json`:
@@ -17,7 +17,7 @@ cd ~/.config/opencode && npm install opencode-kiro-auth
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-kiro-auth"],
+  "plugin": ["opencode-kiro-q-auth"],
   "provider": {
     "kiro": {
       "api": "https://q.us-east-1.amazonaws.com",

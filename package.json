@@ -1,6 +1,6 @@
 {
-  "name": "opencode-kiro-auth",
-  "version": "0.1.0",
+  "name": "opencode-kiro-q-auth",
+  "version": "1.0.1",
   "description": "OpenCode plugin for Amazon Q / Kiro authentication",
   "type": "module",
   "main": "dist/index.js",

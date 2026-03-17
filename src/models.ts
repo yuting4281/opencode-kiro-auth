@@ -10,8 +10,8 @@ export const MODEL_MAP: Record<string, string> = {
   "claude-sonnet-4.5": "claude-sonnet-4.5",
   "claude-haiku-4.5": "claude-haiku-4.5",
   "claude-opus-4.5": "claude-opus-4.5",
-  "kiro-claude-sonnet-4": "claude-sonnet-4",
-  "kiro-claude-sonnet-4-5": "claude-sonnet-4.5",
+  "claude-sonnet-4.6": "claude-sonnet-4.6",
+  "claude-opus-4.6": "claude-opus-4.6",
 }
 
 export const DEFAULT_MODEL = "claude-sonnet-4.5"

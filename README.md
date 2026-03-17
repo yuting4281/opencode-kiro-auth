@@ -1,8 +1,8 @@
 # opencode-kiro-auth
 
-OpenCode plugin that lets you use Amazon Q / Kiro as a free Claude provider.
+OpenCode plugin that lets you use Amazon Q / Kiro as a Claude provider.
 
-Intercepts Anthropic API calls and transparently routes them through Amazon Q, giving you access to Claude models at no cost.
+Intercepts Anthropic API calls and transparently routes them through Amazon Q.
 
 ## Install
 
@@ -23,21 +23,35 @@ cd ~/.config/opencode && npm install opencode-kiro-auth
       "api": "https://q.us-east-1.amazonaws.com",
       "npm": "@ai-sdk/anthropic",
       "models": {
-        "kiro-claude-sonnet-4": {
+        "claude-sonnet-4": {
           "name": "Claude Sonnet 4 (Kiro)",
           "attachment": true,
-          "limit": {
-            "context": 200000,
-            "output": 16384
-          }
+          "limit": { "context": 200000, "output": 16384 }
         },
-        "kiro-claude-sonnet-4-5": {
+        "claude-sonnet-4.5": {
           "name": "Claude Sonnet 4.5 (Kiro)",
           "attachment": true,
-          "limit": {
-            "context": 200000,
-            "output": 16384
-          }
+          "limit": { "context": 200000, "output": 16384 }
+        },
+        "claude-haiku-4.5": {
+          "name": "Claude Haiku 4.5 (Kiro)",
+          "attachment": true,
+          "limit": { "context": 200000, "output": 8192 }
+        },
+        "claude-opus-4.5": {
+          "name": "Claude Opus 4.5 (Kiro)",
+          "attachment": true,
+          "limit": { "context": 200000, "output": 32768 }
+        },
+        "claude-sonnet-4.6": {
+          "name": "Claude Sonnet 4.6 (Kiro)",
+          "attachment": true,
+          "limit": { "context": 200000, "output": 16384 }
+        },
+        "claude-opus-4.6": {
+          "name": "Claude Opus 4.6 (Kiro)",
+          "attachment": true,
+          "limit": { "context": 200000, "output": 32768 }
         }
       }
     }
